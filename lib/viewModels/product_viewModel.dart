@@ -10,8 +10,6 @@ import 'package:kingslabs_mt/repositories/product_repository.dart';
 class ProductViewmodel with ChangeNotifier {
   final ProductRepostiory _productRepostiory;
 
-    // final StorageService _storageService = StorageService();
-
   ProductViewmodel(this._productRepostiory);
 
   List<Product>_products = [];
@@ -20,12 +18,11 @@ class ProductViewmodel with ChangeNotifier {
   List<Product> get products => _products;
   bool get isLoading => _isLoading;
 
-  Future<void> getAllPosts() async {
+  Future<void> getAllProducts() async {
     _isLoading = true;
     notifyListeners();
     try {
    ProductModel data  = await _productRepostiory.fetchProducts();
-   print(data);
    _products = data.products;
     } catch (e) {
       throw Exception(e.toString());

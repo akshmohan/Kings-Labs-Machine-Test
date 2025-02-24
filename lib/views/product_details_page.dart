@@ -41,7 +41,6 @@ class _ProductDetailsPageState extends ConsumerState<ProductDetailsPage> {
   }
 }
 
-// ✅ ProductDetailsView - Displays fetched product details
 class ProductDetailsView extends StatelessWidget {
   final Product product;
   const ProductDetailsView({Key? key, required this.product}) : super(key: key);

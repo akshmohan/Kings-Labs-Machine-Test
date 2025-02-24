@@ -20,13 +20,13 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => ref.read(productProvider.notifier).getAllPosts());
+    Future.microtask(() => ref.read(productProvider.notifier).getAllProducts());
   }
 
   @override
   Widget build(BuildContext context) {
     final authState = ref.watch(authProvider);
-    final postViewModel = ref.watch(productProvider);
+    final productViewModel = ref.watch(productProvider);
     final themeMode = ref.watch(themeProvider);
 
     return Scaffold(
@@ -81,14 +81,14 @@ class _HomePageState extends ConsumerState<HomePage> {
         ],
       ),
       body:
-          postViewModel.isLoading
+          productViewModel.isLoading
               ? const Center(child: CircularProgressIndicator())
               : Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ListView.builder(
-                  itemCount: postViewModel.products.length,
+                  itemCount: productViewModel.products.length,
                   itemBuilder: (context, index) {
-                    final product = postViewModel.products[index];
+                    final product = productViewModel.products[index];
                     return InkWell(
                       onTap: () {
                         Navigator.push(

@@ -36,9 +36,9 @@ Future<void> clearAccessToken() async{
   await prefs.remove('accessToken');
 }
 
-Future<void> savePosts(String jsonString) async {
+Future<void> saveProducts(String jsonString) async {
   final prefs = await SharedPreferences.getInstance();
-  await prefs.setString('saved_posts', jsonString);
+  await prefs.setString('saved_products', jsonString);
 }
 
 }

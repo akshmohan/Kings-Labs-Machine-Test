@@ -144,7 +144,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                         );
                                       },
                                     );
-                                    print("----------------------------ERROR:${e.toString()}---------------------------");
                                   } finally {
                                     ref.read(isLoadingProvider.notifier).state =
                                         false;

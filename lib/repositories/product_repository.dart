@@ -13,11 +13,11 @@ class ProductRepostiory {
 
       if (response.statusCode == 200) {
     
-        ProductModel fetchedPosts = productModelFromJson(response.body);
+        ProductModel fetchedProducts = productModelFromJson(response.body);
 
-        return fetchedPosts;
+        return fetchedProducts;
       } else {
-        throw Exception("Failed to fetch posts");
+        throw Exception("Failed to fetch products");
       }
     } catch (e) {
       throw Exception(e.toString());
@@ -31,12 +31,11 @@ Future<Product> fetchDetails(int id) async {
           .get(Uri.parse("${ApiEndpoints.productsUrl}/$id"));
 
       if (response.statusCode == 200) {
-      ;
         Product fetchDetails = Product.fromJson(jsonDecode(  response.body));
 
         return fetchDetails;
       } else {
-        throw Exception("Failed to fetch posts");
+        throw Exception("Failed to fetch products");
       }
     } catch (e) {
       throw Exception(e.toString());
