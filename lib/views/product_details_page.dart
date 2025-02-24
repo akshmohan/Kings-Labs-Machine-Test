@@ -26,16 +26,17 @@ class _ProductDetailsPageState extends ConsumerState<ProductDetailsPage> {
     return Scaffold(
       appBar: AppBar(title: const Text("Product Details")),
       body: Center(
-        child: detailsViewModel.isLoading
-            ? const CircularProgressIndicator()
-            : detailsViewModel.errorMessage != null
+        child:
+            detailsViewModel.isLoading
+                ? const CircularProgressIndicator()
+                : detailsViewModel.errorMessage != null
                 ? Text(
-                    "Error: ${detailsViewModel.errorMessage}",
-                    style: const TextStyle(color: Colors.red),
-                  )
+                  "Error: ${detailsViewModel.errorMessage}",
+                  style: const TextStyle(color: Colors.red),
+                )
                 : detailsViewModel.product != null
-                    ? ProductDetailsView(product: detailsViewModel.product!)
-                    : const Text("No product data available"),
+                ? ProductDetailsView(product: detailsViewModel.product!)
+                : const Text("No product data available"),
       ),
     );
   }
@@ -52,22 +53,46 @@ class ProductDetailsView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-         Image.network(product.images.first, height: 200, fit: BoxFit.cover),
+          Center(
+            child: Image.network(
+              product.images.first,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
+          ),
           const SizedBox(height: 16),
-          Text(product.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(
+            product.title,
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 8),
-          Text("Price: \$${product.price}", style: const TextStyle(fontSize: 18, color: Colors.green)),
+          Text(
+            "Price: \$${product.price}",
+            style: const TextStyle(fontSize: 18, color: Colors.green),
+          ),
           const SizedBox(height: 8),
-          Text(product.description, style: const TextStyle(fontSize: 16, color: Colors.grey)),
+          Text(
+            product.description,
+            style: const TextStyle(fontSize: 16, color: Colors.grey),
+          ),
           const SizedBox(height: 16),
           Row(
             children: [
-              Text("Rating: ${product.rating}", style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              Text(
+                "Rating: ${product.rating}",
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const Icon(Icons.star, color: Colors.orange),
             ],
           ),
           const SizedBox(height: 16),
-          Text("Stock: ${product.stock > 0 ? 'Available' : 'Out of Stock'}", style: const TextStyle(fontSize: 16)),
+          Text(
+            "Stock: ${product.stock > 0 ? 'Available' : 'Out of Stock'}",
+            style: const TextStyle(fontSize: 16),
+          ),
         ],
       ),
     );
