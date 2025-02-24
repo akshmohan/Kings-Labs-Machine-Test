@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kingslabs_mt/core/widgets/loader.dart';
 import 'package:kingslabs_mt/models/product_model.dart';
 import 'package:kingslabs_mt/viewModels/details_viewModel.dart';
 
@@ -58,6 +59,16 @@ class ProductDetailsView extends StatelessWidget {
               product.images.first,
               height: 200,
               fit: BoxFit.cover,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return SizedBox(height: 200, child: const Loader());
+              },
+              errorBuilder:
+                  (context, error, stackTrace) => const Icon(
+                    Icons.broken_image,
+                    size: 100,
+                    color: Colors.grey,
+                  ),
             ),
           ),
           const SizedBox(height: 16),
