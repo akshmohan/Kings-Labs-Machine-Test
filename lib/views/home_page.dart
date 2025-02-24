@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kingslabs_mt/core/constants/app_colors.dart';
 import 'package:kingslabs_mt/core/widgets/custom_dialog.dart';
+import 'package:kingslabs_mt/core/widgets/loader.dart';
 import 'package:kingslabs_mt/core/widgets/snackbar.dart';
 import 'package:kingslabs_mt/viewModels/auth_viewModel.dart';
 import 'package:kingslabs_mt/viewModels/product_viewModel.dart';
@@ -82,7 +83,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       ),
       body:
           productViewModel.isLoading
-              ? const Center(child: CircularProgressIndicator())
+              ? const Center(child: Loader())
               : Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ListView.builder(
@@ -131,7 +132,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                       width: 80,
                                       height: 80,
                                       child: Center(
-                                        child: CircularProgressIndicator(),
+                                        child: Loader(),
                                       ),
                                     );
                                   },

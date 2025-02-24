@@ -29,7 +29,7 @@ class _ProductDetailsPageState extends ConsumerState<ProductDetailsPage> {
       body: Center(
         child:
             detailsViewModel.isLoading
-                ? const CircularProgressIndicator()
+                ? const Loader()
                 : detailsViewModel.errorMessage != null
                 ? Text(
                   "Error: ${detailsViewModel.errorMessage}",

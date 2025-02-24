@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kingslabs_mt/config/routes.dart';
+import 'package:kingslabs_mt/core/widgets/loader.dart';
 import 'package:kingslabs_mt/viewModels/auth_viewModel.dart';
 import 'package:kingslabs_mt/views/home_page.dart';
 import 'package:kingslabs_mt/views/login_page.dart';
@@ -23,7 +24,7 @@ class MyApp extends ConsumerWidget {
       return const MaterialApp(
         home: Scaffold(
           body: Center(
-            child: CircularProgressIndicator(),
+            child: Loader(),
           ),
         ),
       );
